@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "f84e568c-fb8d-4c02-b7bc-fbe9acaf2606",
+		"name": "MOD08S02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5058327"
+	},
+	"item": [
+		{
+			"name": "ListarEquipos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/equipos?marca=dell",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"equipos"
+					],
+					"query": [
+						{
+							"key": "marca",
+							"value": "dell"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistrarEquipos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Monitor\",\r\n    \"marca\": \"LG\",\r\n    \"modelo\": \"D01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/equipos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"equipos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarEquipos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Monitor\",\r\n    \"marca\": \"LG\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/equipos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"equipos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "8a29f4db-41bd-4c24-a1cd-601bc3efb9e11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarEquipos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Monitor\",\r\n    \"marca\": \"Samsung\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/equipos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"equipos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "c2a44469-eedc-4269-99bc-1e0369977919"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
