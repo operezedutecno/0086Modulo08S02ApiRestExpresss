@@ -10,6 +10,11 @@ const listar = async () => {
     return listado
 }
 
+const consultar = async(id) => {
+    const equipo = await conexion.query("SELECT * FROM equipos WHERE id = $1", [id]);
+    return equipo.rows[0] || null;
+}
+
 const registrar = async (nombre, marca, cantidad) => {
     try {
         const argumentos = {
@@ -32,7 +37,7 @@ const modificar = async (equipoId, nombre, marca, cantidad) => {
     try {
         const argumentos= {
             text: "UPDATE equipos SET nombre=$1, marca=$2, cantidad=$3 WHERE id = $4 RETURNING *",
-            values: [nombre, marca, cantidad, equipoId]
+            values: [nombre.toUpperCase(), marca.toUpperCase(), cantidad, equipoId]
         }
         const { rows: actualizado } = await conexion.query(argumentos);
         return { code: 200, actualizado, message: "Equipo modificado con éxito"};
@@ -59,4 +64,4 @@ const eliminar = async (equipoId) => {
     }
 }
 
-module.exports = { listar, registrar, modificar, eliminar }
+module.exports = { listar, registrar, modificar, eliminar, consultar }
